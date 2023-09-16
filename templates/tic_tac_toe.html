@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="board-container">
+    <div class="board">
+        <div class="row">
+            <div class="cell top-left"></div>
+            <div class="cell"></div>
+            <div class="cell top-right"></div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="row">
+            <div class="cell bottom-left"></div>
+            <div class="cell"></div>
+            <div class="cell bottom-right"></div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="button" onclick="resetBoard()">Reset Board</button>
+        <a href="/scoreboard" class="button">Scoreboard</a>
+    </div>
+    
+</div>
+
+
+
+{% endblock %}

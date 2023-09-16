@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/scoreboard.css') }}">
+    </head>
+<body>
+    <div class="scoreboard-container">
+        <h2>Scoreboard for {{ user.username }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Outcome of last games</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.outcome }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <a href="/tic_tac_toe" class="button">Tic Tac Toe</a>
+    
+    
+
+</body>
+</html>
+

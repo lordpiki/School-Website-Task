@@ -1,0 +1,107 @@
+/* tic_tac_toe.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(134, 159, 225, 1);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.board {
+    display: grid;
+    margin-top: 50px;
+    grid-template-rows: repeat(3, 160px);
+    grid-template-columns: repeat(3, 160px);
+    background: rgba(255, 255, 255, 1);
+
+    box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    transition: transform 0.2s ease;
+}
+
+.row {
+    display: contents;
+}
+
+.cell {
+    width: 160px;
+    height: 160px;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1); /* Add background color */
+    color: black; /* Text color */
+}
+
+/* Corner-specific styles */
+.top-left {
+    border-top-left-radius: 30px;
+}
+
+.top-right {
+    border-top-right-radius: 30px;
+}
+
+.bottom-left {
+    border-bottom-left-radius: 30px;
+}
+
+.bottom-right {
+    border-bottom-right-radius: 30px;
+}
+
+.cell.occupied {
+    pointer-events: none;
+}
+
+.text {
+    size: 60px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* Place buttons in a column */
+    align-items: center; /* Center-align buttons horizontally */
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+
+.button {
+    padding: 10px 20px;
+    justify-content: center;
+    background-color: rgba(213, 76, 164, 1); /* Use the theme color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 35px;
+    margin-left: 20px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+
+}
+
+.button:hover {
+    background-color: rgba(175, 43, 129, 1);
+}

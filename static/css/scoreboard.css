@@ -1,0 +1,65 @@
+/* scoreboard.css */
+body {
+    background-color: rgba(134, 159, 225, 1);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.scoreboard-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+h2 {
+    color: rgba(213, 76, 164, 1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(88, 82, 172, 1);
+}
+
+table th {
+    background-color: rgba(213, 76, 164, 0.9);
+    color: white;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: rgba(213, 76, 164, 0.1);
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: rgba(88, 82, 172, 0.1);
+}
+
+.button {
+    background-color: rgba(213, 76, 164, 1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: rgba(175, 43, 129, 1);
+}
