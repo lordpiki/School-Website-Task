@@ -38,6 +38,10 @@ users = {
 def index():
     return render_template('login.html')
 
+@app.route('/about_page')
+def about_page():
+    return render_template('about_page.html')
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':

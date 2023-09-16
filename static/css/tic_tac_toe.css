@@ -105,3 +105,23 @@ body {
 .button:hover {
     background-color: rgba(175, 43, 129, 1);
 }
+
+.about_page {
+    position: absolute;
+    top: 25px; /* Adjust the top position as needed */
+    left: 5px;
+    background-color: rgba(213, 76, 164, 1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.about_page:hover {
+    background-color: rgba(175, 43, 129, 1);
+}

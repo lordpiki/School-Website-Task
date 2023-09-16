@@ -1,0 +1,50 @@
+/* about.css */
+body {
+    background-color: rgba(134, 159, 225, 1);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgba(88, 82, 172, 1);
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    color: rgba(88, 82, 172, 1);
+}
+
+h1 {
+    color: rgba(213, 76, 164, 1);
+}
+
+footer {
+    background-color: rgba(88, 82, 172, 1);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
