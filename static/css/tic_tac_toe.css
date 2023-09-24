@@ -18,7 +18,7 @@ body {
 }
 
 .board-container {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -124,4 +124,14 @@ body {
 
 .about_page:hover {
     background-color: rgba(175, 43, 129, 1);
+}
+
+
+footer {
+    display: block;
+    background-color: rgba(88, 82, 172, 1);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin: 10px 0px 0px -00px;
 }

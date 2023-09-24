@@ -43,6 +43,7 @@ h1 {
 }
 
 footer {
+    display: flex;
     background-color: rgba(88, 82, 172, 1);
     color: white;
     text-align: center;

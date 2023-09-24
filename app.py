@@ -4,12 +4,14 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import secrets
 
+
 secret_key = secrets.token_hex(16) 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # Replace with your database URL
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  
+app.config['SECRET_KEY'] = secret_key  
 db = SQLAlchemy(app)
-app.config['SECRET_KEY'] = secret_key  # Replace 'secret_key' with your actual secret key
+
 
 
 
@@ -23,16 +25,7 @@ class GameResult(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     outcome = db.Column(db.String(20), nullable=False)  # 'win', 'lose', or 'draw'
-    # Add more fields as needed (e.g., date, moves, etc.)
 
-
-# In a real application, you would store user data securely, e.g., in a database.
-# For simplicity, we'll use a dictionary here.
-users = {
-    'user1': 'password1',
-    'user2': 'password2',
-    '123' : '123'
-}
 
 @app.route('/')
 def index():
@@ -42,11 +35,34 @@ def index():
 def about_page():
     return render_template('about_page.html')
 
+def check_password(password):
+    if len(password) < 8:
+        return "Password has to be longer than 8 characters"
+    
+    elif not any(char.isdigit() for char in password):
+        return "Password must have at least 1 number in it"
+    
+    elif not any(char.isupper() for char in password):
+        return "Password must have at least 1 upper case character in it"
+    
+    else:
+        return True
+    
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        confirm_password = request.form['confirm_password']
+        
+        if password != confirm_password:
+            return render_template('signup.html', message="Passwords don't match!")
+        
+
+        password_check = check_password(password)
+        
+        if password_check != True:
+            return render_template('signup.html', message=password_check)
 
         # Check if the username is already taken
         existing_user = User.query.filter_by(username=username).first()
@@ -58,7 +74,7 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
 
-        return redirect(url_for('login'))
+        return redirect(url_for('login', message="Signup successful",))
 
     return render_template('signup.html')
 
@@ -73,13 +89,13 @@ def login():
             session['user_id'] = user.id  # Store user ID in the session
             return redirect(url_for('tic_tac_toe'))
 
-        return render_template('login.html', message='Invalid credentials. Please try again.')
+        return render_template('login.html', message='Invalid credentials. Please try again.', login_successful=False)
 
-    return render_template('login.html')
+    return render_template('login.html',  login_successful=True)
 
 @app.route('/scoreboard')
 def scoreboard():
-    user_id = session.get('user_id')  # Replace with the user's ID
+    user_id = session.get('user_id') 
     user = User.query.get(user_id)
     results = GameResult.query.filter_by(user_id=user_id).all()
     return render_template("scoreboard.html", user=user, results=reversed(results))

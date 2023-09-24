@@ -73,3 +73,9 @@ button:hover {
 .signup-link:hover {
     background-color: rgba(175, 43, 129, 1);
 }
+
+
+input.error {
+    border: 3px solid red;
+    color: red;
+}
