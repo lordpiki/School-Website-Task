@@ -74,7 +74,7 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
 
-        return redirect(url_for('login', message="Signup successful",))
+        return redirect(url_for('login', message='Signup successful'))
 
     return render_template('signup.html')
 
@@ -95,13 +95,21 @@ def login():
 
 @app.route('/scoreboard')
 def scoreboard():
+    
     user_id = session.get('user_id') 
+    if user_id == None:
+        return render_template('login.html', message='Please login first')
+
     user = User.query.get(user_id)
-    results = GameResult.query.filter_by(user_id=user_id).all()
+    results = GameResult.query.filter_by(user_id=user_id).all()[:10]
     return render_template("scoreboard.html", user=user, results=reversed(results))
 
 @app.route('/tic_tac_toe')
 def tic_tac_toe():
+    user_id = session.get('user_id') 
+    if user_id == None:
+        return render_template('login.html', message='Please login first')
+
     return render_template("tic_tac_toe.html")
 
 
@@ -196,6 +204,8 @@ def check_tic_tac_toe(board):
         return -1  # Tie
     else:
         return 0  # Game still going
+
+
 
 
 if __name__ == '__main__':

@@ -1,14 +1,3 @@
-/* tic_tac_toe.css */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: rgba(134, 159, 225, 1);
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
 
 .container {
     justify-content: center;
@@ -21,19 +10,23 @@ body {
     display: block;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .board {
     display: grid;
-    margin-top: 50px;
+    margin-top: 15vh;
     grid-template-rows: repeat(3, 160px);
     grid-template-columns: repeat(3, 160px);
     background: rgba(255, 255, 255, 1);
 
     box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.3);
     border-radius: 30px;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+}
+
+.board.dark-mode {
+    background-color: rgba(67, 87, 137, 1);
+    border-color: black;
 }
 
 .row {
@@ -49,8 +42,11 @@ body {
     justify-content: center;
     font-size: 60px;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.1); /* Add background color */
-    color: black; /* Text color */
+
+}
+
+.cell.dark-mode {
+    border-color: black;
 }
 
 /* Corner-specific styles */
@@ -79,59 +75,8 @@ body {
 }
 
 .button-container {
-    display: flex;
-    flex-direction: column; /* Place buttons in a column */
-    align-items: center; /* Center-align buttons horizontally */
-    margin-top: 20px; /* Adjust the margin as needed */
-}
-
-
-.button {
-    padding: 10px 20px;
     justify-content: center;
-    background-color: rgba(213, 76, 164, 1); /* Use the theme color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 35px;
-    margin-left: 20px;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
+    align-items: center;
 
-}
-
-.button:hover {
-    background-color: rgba(175, 43, 129, 1);
-}
-
-.about_page {
-    position: absolute;
-    top: 25px; /* Adjust the top position as needed */
-    left: 5px;
-    background-color: rgba(213, 76, 164, 1);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin-left: 30px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-}
-
-.about_page:hover {
-    background-color: rgba(175, 43, 129, 1);
-}
-
-
-footer {
-    display: block;
-    background-color: rgba(88, 82, 172, 1);
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin: 10px 0px 0px -00px;
+    margin-top: 20px; 
 }

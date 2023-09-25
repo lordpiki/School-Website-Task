@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tic_tac_toe.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='site-logo.ico') }}">
-</head>
-<body>
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+        <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </head>
+    <body>
+        <header class="header">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                        <a href="/login">Login</a>
+                        <a href="/signup">Signup</a>
+                        <a href="/tic_tac_toe">Tic Tac Toe</a>
+                        <a href="/scoreboard">Scoreboard</a>
+                        <a href="/about_page">About</a>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+                        
+                    </li>
+                </ul>
+                
+            </nav>
+            <div class="theme-button" id="mode-toggle-button">
+                <img id="mode-image" src="static/data/sun.png" alt="Sun" width="30" height="30">
+            </div>
+        </header>
+    
+<body class="body.light-mode">
+
+    {% block content %}{% endblock %}
+
+
 </body>
 </html>

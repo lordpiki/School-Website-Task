@@ -1,0 +1,132 @@
+body {
+    background-color: rgba(134, 159, 225, 1);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    height: 100vh;
+}
+
+body.dark-mode {
+    background-color: rgba(30, 31, 60, 1);
+    color: white;
+}
+
+.common {
+    font-family: Arial, sans-serif;
+}
+
+
+.header {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(88, 82, 172, 1);
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    box-shadow: 0 0 30px 4px rgba(88, 82, 172, 1);
+}
+
+.header.dark-mode {
+    background-color: rgba(67, 87, 137, 1);
+    color: white;
+    box-shadow: 0 0 30px 4px rgba(67, 87, 137, 1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: middle;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+
+}
+
+nav a.dark-mode {
+    color: white;
+}
+
+.theme-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: gray 5px;
+    border-radius: 5px;
+}
+
+#mode-image {
+    margin-right: 10px;
+
+}
+
+.dark-mode #mode-image {
+    transform: rotate(360deg);
+  }
+
+
+button {
+    background-color: rgba(213, 76, 164, 1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: rgba(189, 82, 138, 1);
+}
+
+button.dark-mode {
+    background-color: rgba(130, 30, 148, 1); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container {
+    color: black;
+    margin-top: 25vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.form-container.dark-mode {
+    background-color: rgba(67, 87, 137, 0.5);
+    box-shadow: 0px 0px 10px rgba(67, 87, 137, 0.8);
+    color: white;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid rgba(88, 82, 172, 1);
+    border-radius: 5px;
+
+}
+
+input.dark-mode {
+    color: white;
+    border-color: 1px rgba(67, 87, 137, 0.7);
+    background-color: rgba(67, 87, 137, 0.7);
+}

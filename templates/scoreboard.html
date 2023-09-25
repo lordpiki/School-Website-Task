@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<a href="/about_page" class="about_page">About Page</a>
-<html>
+{% extends "base.html" %}
+{% block content %}
+
+
     <head>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/scoreboard.css') }}">
     </head>
 <body>
@@ -24,10 +25,8 @@
         </table>
 
     </div>
-    <a href="/tic_tac_toe" class="button">Tic Tac Toe</a>
-    
-    
 
 </body>
-</html>
+
+{% endblock %}
 

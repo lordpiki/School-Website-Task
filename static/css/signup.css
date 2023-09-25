@@ -1,53 +1,26 @@
-body {
-    background-color: rgba(134, 159, 225, 1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.signup-container {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    text-align: center;
-    width: 300px;
-    
-}
-
-h2 {
-    color: rgba(213, 76, 164, 1);
-}
-
 .form-group {
-    display: flex;
-    flex-direction: column;
     
+    display: flex;
+    flex-direction: column; 
     margin-bottom: 15px;
 }
 
-input {
-    padding: 10px;
-    border: 1px solid rgba(88, 82, 172, 1);
-    border-radius: 5px;
+
+.login_question {
+    color: rgba(213, 76, 164, 0.8);
+    text-decoration: none;
 }
 
-button {
-    background-color: rgba(213, 76, 164, 1);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: rgba(213, 76, 164, 0.8);
+.login_question.dark-mode {
+    color: rgba(213, 76, 164, 1);;
 }
 
 .message {
     color: red
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
 }

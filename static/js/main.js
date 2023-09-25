@@ -1,83 +1,56 @@
-const boardCells = document.querySelectorAll('.cell');
-const currentBoard = Array(9).fill(0); // Initialize the board state with -1 (empty cells)
-
-function resetBoard() {
-    boardCells.forEach(cell => {
-        cell.textContent = '';
-        cell.classList.remove('occupied');
-    });
-
-    currentBoard.fill(0);
+let isDarkMode = localStorage.getItem('darkMode') === 'true' || false;
+console.log("Initial dark mode is ", isDarkMode);
+if (isDarkMode === true)
+{
+    console.log("here");
+    toggleDarkModeForElements();
 }
 
-function endGame() {
-    boardCells.forEach(cell =>{
-        cell.classList.add('occupied');
+const modeToggleButton = document.getElementById('mode-toggle-button');
+
+    
+    modeToggleButton.addEventListener('click', function() {
+
+        const modeImage = document.getElementById('mode-image');
+        modeImage.style.transition = 'all 0.3s ease'
+        
+        toggleTransitionsForElements();
+
+        console.log("Dark mode is ", isDarkMode);
+        isDarkMode = !isDarkMode;
+        localStorage.setItem("darkMode", isDarkMode);
+        console.log("Changed dark mode to ", isDarkMode);
+        console.log("Dark mode is ", isDarkMode);
+
+    
+
+        toggleDarkModeForElements();
     });
-}
 
-function checkWin(board, player) {
-    const winCombinations = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-        [0, 4, 8], [2, 4, 6] // Diagonals
-    ];
 
-    for (const combination of winCombinations) {
-        const [a, b, c] = combination;
-        if (board[a] === player && board[b] === player && board[c] === player) {
-            return true;
-        }
+function toggleDarkModeForElements() {
+    const elements = document.querySelectorAll('*');
+    const modeImage = document.getElementById('mode-image');
+    
+
+    if (isDarkMode) {
+        modeImage.src = 'static/data/moon.png'; // Change to the moon image
+        modeImage.alt = 'Moon'; // Change alt text to 'Moon'
+    } else {
+        modeImage.src = 'static/data/sun.png'; // Change back to the sun image
+        modeImage.alt = 'Sun'; // Change alt text to 'Sun'
     }
 
-    return false;
+    elements.forEach((element) => {
+        element.classList.toggle('dark-mode');
+    });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    let turn = 1;
+function toggleTransitionsForElements() {
+    const elements = document.querySelectorAll('*');
 
-    boardCells.forEach((cell, index) => {
-        cell.addEventListener('click', function() {
-            if (!cell.classList.contains('occupied')) {
-                const move = index;
-
-                if (turn === 1) {
-                    currentBoard[move] = 1; // Update the board state for player's move
-                    cell.textContent = 'X';
-                }
-
-                const player_turn = turn;
-
-                cell.classList.add('occupied');
-
-                // Make an AJAX POST request to the Flask server to play the player's move
-                fetch('/api/play', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ turn: player_turn, board: currentBoard })
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const botMove = data.bot_move;
-                    currentBoard[botMove] = 2; // Update the board state for bot's move
-
-                    const botCell = boardCells[botMove];
-                    botCell.textContent = 'O';
-                    botCell.classList.add('occupied');
-
-                    if (checkWin(currentBoard, 2)) {
-                        endGame();
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-            }
-        });
+    elements.forEach((element) => {
+        console.log(element.style.transition);
+        //element.style.transition = 'all 0.3s ease';
     });
-});
+}

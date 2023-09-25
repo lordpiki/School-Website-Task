@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% block content %}
+
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/signup.css') }}">
 </head>
 <body>
-    <div class="signup-container">
+    <div class="form-container">
         <h2>Sign Up</h2>
         <form action="/signup" method="post">
             <div class="form-group">
@@ -23,7 +24,9 @@
             <button type="submit">Sign Up</button>
         </form>
         <p class="message">{{ message }}</p>
-        <p>Already have an account? <a href="/login">Login</a></p>
+        <p>Already have an account? <a class="login_question" href="/login">Login</a></p>
     </div>
 </body>
-</html>
+
+{% endblock %}
+
