@@ -131,6 +131,7 @@ def play_move():
     print("res: ")
     print(result.stdout)
     print(result.stderr)
+    
     if 0 not in current_board:
         game_result = GameResult(user_id=session.get('user_id'), outcome='tie')
         db.session.add(game_result)

@@ -80,3 +80,37 @@
 
     margin-top: 20px; 
 }
+
+.difficulty-button {
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 20px; 
+    background-color: red;
+}
+
+.difficulty-button:hover {
+    background-color: rgba(230, 0, 0, 1);
+}
+
+.difficulty-button.green {
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 20px; 
+    background-color: rgba(0, 140, 0, 1);
+}
+
+.difficulty-button.green:hover {
+    background-color: green;
+}
+
+.difficulty-button.dark-mode {
+    background-color: rgba(230, 0, 0, 1);
+
+}
+
+.difficulty-button.green.dark-mode {
+    background-color: rgba(0, 140, 0, 1);
+
+}

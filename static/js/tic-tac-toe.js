@@ -1,3 +1,5 @@
+let difficulty_easy = false;
+
 const boardCells = document.querySelectorAll('.cell');
 const currentBoard = Array(9).fill(0); // Initialize the board state with -1 (empty cells)
 
@@ -80,4 +82,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
+
+
+
+
+const difficultyToggleButton = document.getElementById('difficulty-button');
+
+difficultyToggleButton.addEventListener('click', function() {
+
+    difficultyToggleButton.classList.toggle('green');
+    difficulty_easy = !difficulty_easy;
+
+    if (difficulty_easy)
+        difficultyToggleButton.textContent = "Mode - Easy";
+    else
+        difficultyToggleButton.textContent = "Mode - Hard";
 });
