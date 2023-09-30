@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box; /* Apply border-box box-sizing to all elements */
+}
+
+:root {
+  --rows: 10; /* Default number of rows */
+  --cols: 10; /* Default number of columns */
+}
+
+#maze-container {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 30px); /* Adjust the number of columns using CSS variable */
+  grid-template-rows: repeat(var(--rows), 30px); /* Adjust the number of rows as needed */
+  gap: 0; /* Set the gap between cells to 0 */
+  background-color: transparent; /* Adjust the background color of the maze */
+  margin: 50px auto;
+  width: fit-content;
+  border: 2px solid #333333; /* Add a border to the maze container to compensate for the gaps */
+  box-sizing: content-box; /* Set box-sizing to content-box to exclude padding and border from the element's width and height */
+}
+
+#maze-container.dark-mode {
+    border: 2px solid aliceblue;
+}
+
+
+.cell {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 30px;
+  height: 30px;
+  border: 0; 
+}
+
+.cell.dark-mode {
+    background-color: rgba(255, 255, 255, 0.1) ;
+}
+
+.wall-top,
+.wall-right,
+.wall-bottom,
+.wall-left {
+  background-color: rgba(255, 255, 255, 0.1); /* Adjust the wall color */
+}
+
+.wall-top { border-top: 1px solid #333333; }
+.wall-right { border-right: 1px solid #333333; }
+.wall-bottom { border-bottom: 1px solid #333333; }
+.wall-left { border-left: 1px solid #333333; }
+
+.wall-top.dark-mode { border-color: aliceblue; }
+.wall-right.dark-mode { border-color: aliceblue; }
+.wall-bottom.dark-mode { border-color: aliceblue; }
+.wall-left.dark-mode { border-color: aliceblue; }
+
+.start-point {
+  background-color: rgba(67, 87, 200, 1); /* Customize the starting point color */
+}
+
+.start-point.dark-mode {
+    background-color: rgba(67, 87, 200, 1); /* Customize the starting point color */
+
+}
+
+.end-point {
+  background-color: rgba(130, 30, 148, 1); /* Customize the ending point color */
+}
+
+.end-point.dark-mode {
+    background-color: rgba(213, 76, 164, 1); /* Customize the ending point color */
+  }
+  
+
+.solution-path {
+  background-color: rgba(0, 250, 250, 0.7); /* Customize the solution path color */
+}
+
+.solution-path.dark-mode {
+    background-color: rgba(0, 250, 250, 0.5); /* Customize the solution path color */
+  }
+
+.visited {
+  background-color: rgba(213, 76, 164, 1);
+}
+
+.visited.dark-mode {
+    background-color: rgba(130, 30, 148, 1);
+}
+
+.slider-container {
+    margin-top: 10px;
+    display: flex; 
+    align-items: center; 
+
+}
+
+input[type="range"] {
+    width: 25%;
+    height: 50px;
+    margin-right: 10px;
+    -webkit-appearance: none;
+    height: 1px;
+    background-color: rgba(88, 82, 172, 0.5); /* Adjust the color to match your theme */
+    outline: none;
+    border-radius: 10px;
+}
+
+.maze_button {
+    margin-left: 7px;
+}
+

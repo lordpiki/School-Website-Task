@@ -63,7 +63,7 @@ document.onkeypress = function(event) {
     const activeElement = document.activeElement;
     
     if (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA') {
-        return; // Skip the action if an input element is focused
+        return;
     }
 
     const modeImage = document.getElementById('mode-image');

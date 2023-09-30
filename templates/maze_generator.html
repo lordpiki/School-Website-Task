@@ -1,0 +1,33 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maze Generator</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/maze_generator.css') }}">
+</head>
+<body>
+    
+    <div class="slider-container">
+        <input class="slider" type="range" id="maze-size-slider" min="5" max="20" step="1" value="15">
+        <label for="maze-size-slider">Maze Size: <span id="maze-size-value">15</span></label>
+        <button class="maze_button" onclick="updateMazeSize()">Randomize</button>
+        <button class="maze_button" onclick="solveMaze()">Solve</button>
+    </div>
+        
+    
+    
+    <div id="maze-container"></div>
+
+
+    
+
+
+    <script defer src="{{ url_for('static', filename='js/maze.js') }}"></script>
+
+</body>
+
+{% endblock %}

@@ -112,6 +112,14 @@ def tic_tac_toe():
 
     return render_template("tic_tac_toe.html")
 
+@app.route('/maze_generator')
+def maze_generator():
+    user_id = session.get('user_id') 
+    if user_id == None:
+        return render_template('login.html', message='Please login first')
+
+    return render_template("maze_generator.html")
+
 
 @app.route('/api/play', methods=['POST'])
 def play_move():
